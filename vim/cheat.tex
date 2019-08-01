@@ -1,0 +1,295 @@
+\documentclass[10pt,landscape]{article}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{hyperref}
+\usepackage{amssymb}
+
+% To make this come out properly in landscape mode, do one of the following
+% 1.
+%  pdflatex latexsheet.tex
+%
+% 2.
+%  latex latexsheet.tex
+%  dvips -P pdf  -t landscape latexsheet.dvi
+%  ps2pdf latexsheet.ps
+
+
+% If you're reading this, be prepared for confusion.  Making this was
+% a learning experience for me, and it shows.  Much of the placement
+% was hacked in; if you make it better, let me know...
+
+
+% 2008-04
+% Changed page margin code to use the geometry package. Also added code for
+% conditional page margins, depending on paper size. Thanks to Uwe Ziegenhagen
+% for the suggestions.
+
+% 2006-08
+% Made changes based on suggestions from Gene Cooperman. <gene at ccs.neu.edu>
+
+
+% To Do:
+% \listoffigures \listoftables
+% \setcounter{secnumdepth}{0}
+
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+	{ \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+
+% Turn off header and footer
+\pagestyle{empty}
+ 
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\scriptsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\scriptsize\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+
+% -----------------------------------------------------------------------
+
+\begin{document}
+
+\raggedright
+\footnotesize
+\begin{multicols}{5}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+     \normalsize{\textbf{nvim Cheat Sheet}} \\
+\end{center}
+
+\section{\hrulefill global\hrulefill}
+\begin{tabular}{@{}ll@{}}
+\verb!:viusage!     & show all key maps \\
+\verb!:PlugClean!   & uninstall plugs \\
+\verb!:PlugInstall! & install plugs \\
+\verb!:PlugUpdate!  & update plugs \\
+\end{tabular}
+
+\section{\hrulefill movement\hrulefill}
+\subsection{:: general ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!h j k l!     & left, down, up, right \\
+    \verb!<S-h> <S-l>! & prev/next empty line \\
+    \verb!<C-j> <C-k>! & 20 lines down/up \\
+    \verb!0 $!         & begin/end of line \\
+    \verb!,0..9!       & goto buf \# \\
+\end{tabular}
+
+\subsection{:: easymotion ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!sd!     & 1 char \\
+    \verb!sf!     & 1 char (overwin) \\
+    \verb!sh ,h!  & 1 char (line backward) \\
+    \verb!sl ,l!  & 1 char (line forward) \\
+    \verb!sj ,j!  & 1 char (downwards) \\
+    \verb!sk ,k!  & 1 char (upwards) \\
+    \verb!ss!     & 2 chars \\
+    \verb!s/!     & x chars \\
+    \verb!sn!     & goto next match \\
+\end{tabular}
+
+\section{\hrulefill editing\hrulefill}
+\subsection{:: general ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!go!       & insert newline below (no imode) \\
+    \verb!gO!       & insert newline above (no imode) \\
+\end{tabular}
+
+\section{\hrulefill searching\hrulefill}
+\subsection{:: general ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!<Esc><Esc>! & clear search \\
+    \verb!,*!         & highlight word \\
+    \verb!<C-r>!      & replace vselected word \\
+\end{tabular}
+
+\subsection{:: incsearch ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!/!            & search forward \\
+    \verb!?!            & search backward \\
+    \verb!g/!           & search (stay) \\
+    \verb!<S-z>/!       & fuzzy search forward \\
+    \verb!<S-z>?!       & fuzzy search backward \\
+    \verb!<S-z>g/!      & fuzzy search (stay) \\
+    \verb!z/!           & easymotion search forward \\
+    \verb!z?!           & easymotion search backward \\
+    \verb!zg/!          & easymotion search (stay) \\
+    \verb!<Tab>!        & move to next match \\
+    \verb!<S-Tab>!      & move to prev match \\
+    \verb!<C-j>!        & move to next page match \\
+    \verb!<C-k>!        & move to prev page match \\
+\end{tabular}
+
+\section{\hrulefill selection\hrulefill}
+\subsection{:: general ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!+!            & expand \\
+    \verb!-!            & shrink \\
+\end{tabular}
+
+\section{\hrulefill NERDTree\hrulefill}
+\subsection{:: NERDTree - general ::}
+\begin{tabular}{@{}ll@{}}
+\verb!,<Tab>!   & toggle NERDtree \\
+\verb!,<S-Tab>! & find file in NERDTree \\
+\verb!q!        & close window \\
+\verb!A!        & min-max window \\
+\verb!?!        & toggle help \\
+\end{tabular}
+
+\subsection{:: NERDTree - file node ::}
+\begin{tabular}{@{}ll@{}}
+\verb!o!        & open \\
+\verb!go!       & open (preview) \\
+\verb!t!        & open in new tab \\
+\verb!T!        & open in new tab silently \\
+\verb!i!        & open in split \\
+\verb!gi!       & open in split (preview) \\
+\verb!s!        & open in vsplit \\
+\verb!gs!       & open in vsplit (preview) \\
+\end{tabular}
+
+\subsection{:: NERDTree - dir node ::}
+\begin{tabular}{@{}ll@{}}
+\verb!o!        & open+close node \\
+\verb!O!        & recursively open node \\
+\verb!t!        & open in new tab \\
+\verb!T!        & open in new tab silently \\
+\verb!x!        & close parent of node \\
+\verb!X!        & close all child nodes \\
+\verb!s!        & open in vsplit \\
+\verb!gs!       & open in vsplit (preview) \\
+\end{tabular}
+
+\subsection{:: NERDTree - bookmarks ::}
+\begin{tabular}{@{}ll@{}}
+\verb!o!        & open bookmark \\
+\verb!go!       & preview file \\
+\verb!go!       & find file file in tree \\
+\verb!t!        & open file in new tab \\
+\verb!T!        & open file in new tab silently \\
+\verb!D!        & delete bookmark \\
+\end{tabular}
+\begin{tabular}{@{}ll@{}}
+\verb!:Bookmark <...>!       & create \\
+\verb!:ClearBookmarks <...>! & delete \\
+\verb!:EditBookmark!         & edit \\
+\end{tabular}
+
+\subsection{:: NERDTree - tree nav ::}
+\begin{tabular}{@{}ll@{}}
+\verb!P!        & go to root \\
+\verb!p!        & go to parent \\
+\verb!K!        & go to first child \\
+\verb!J!        & go to last child \\
+\verb!<C-j>!    & go to next sibling \\
+\verb!<C-k>!    & go to prev sibling \\
+\end{tabular}
+
+\subsection{:: NERDTree - filesystem ::}
+\begin{tabular}{@{}ll@{}}
+\verb!C!        & change tree root to selected dir \\
+\verb!u!        & move root up a dir \\
+\verb!U!        & move root up a dir (leave root) \\
+\verb!r!        & refresh cursor dir \\
+\verb!R!        & refresh root \\
+\verb!m!        & show menu \\
+\verb!cd!       & change the CWD \\
+\verb!CD!       & change tree root to CWD \\
+\end{tabular}
+
+\subsection{:: NERDTree - filtering ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!I!    & hidden files \\
+    \verb!F!    & show/hide files \\
+    \verb!B!    & show/hide bookmarks \\
+\end{tabular}
+
+
+\section{\hrulefill FZF\hrulefill}
+\subsection{:: fzf - git ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!,fgb!     & blame \\
+    \verb!,fgc!     & commits \\
+    \verb!,fgd!     & diff \\
+    \verb!,fgf!     & files \\
+    \verb!,fgs!     & status \\
+    \verb!,fgl!     & log \\
+\end{tabular}
+
+\subsection{:: fzf - search ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!,fb!      & ag \\
+    \verb!,fb!      & buffers \\
+    \verb!,fü!      & color schemes \\
+    \verb!,fc!      & command history \\
+    \verb!,ff!      & files \\
+    \verb!,fl!      & lines \\
+    \verb!,fm!      & maps \\
+    \verb!,fr!      & marks \\
+    \verb!,fs!      & snippets \\
+    \verb!,fo!      & old files+buffers \\
+    \verb!,f/!      & search history \\
+\end{tabular}
+
+
+\section{\hrulefill vcs\hrulefill}
+\subsection{:: signify ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!,n!       & next hunk \\
+    \verb!,<S-n>!   & prev hunk \\
+\end{tabular}
+
+
+
+
+
+\rule{0.3\linewidth}{0.25pt}
+\scriptsize
+
+Copyright \copyright\ 2019 Heiko BLobner
+
+\end{multicols}
+\end{document}
+
