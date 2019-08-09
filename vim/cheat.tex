@@ -100,40 +100,49 @@
 
 \section{\hrulefill global\hrulefill}
 \begin{tabular}{@{}ll@{}}
-\verb!:viusage!     & show all key maps \\
-\verb!:PlugClean!   & uninstall plugs \\
-\verb!:PlugInstall! & install plugs \\
-\verb!:PlugUpdate!  & update plugs \\
+    \verb!:viusage!     & show all key maps \\
+    \verb!:PlugClean!   & uninstall plugs \\
+    \verb!:PlugInstall! & install plugs \\
+    \verb!:PlugUpdate!  & update plugs \\
+    \verb!,0..9!       & goto buf \# \\
+\end{tabular}
+
+\section{\hrulefill editing\hrulefill}
+\subsection{:: general ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!go!       & newline below (no imode) \\
+    \verb!gO!       & newline above (no imode) \\
+\end{tabular}
+
+\subsection{:: multiple cursors ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!<C-n>!    & next (start selection) \\
+    \verb!<C-x>!    & skip \\
+    \verb!<C-p>!    & prev \\
 \end{tabular}
 
 \section{\hrulefill movement\hrulefill}
 \subsection{:: general ::}
 \begin{tabular}{@{}ll@{}}
     \verb!h j k l!     & left, down, up, right \\
-    \verb!<S-h> <S-l>! & prev/next empty line \\
+    \verb!<C-h> <C-l>! & prev/next block \\
     \verb!<C-j> <C-k>! & 20 lines down/up \\
     \verb!0 $!         & begin/end of line \\
-    \verb!,0..9!       & goto buf \# \\
+    \verb!<C-o> <C-i>! & jump back/fore \\
+    \verb!<C-i>!       & 20 lines down/up \\
 \end{tabular}
 
-\subsection{:: easymotion ::}
+\subsection{:: easymotion (emotion) ::}
 \begin{tabular}{@{}ll@{}}
     \verb!sd!     & 1 char \\
     \verb!sf!     & 1 char (overwin) \\
-    \verb!sh ,h!  & 1 char (line backward) \\
-    \verb!sl ,l!  & 1 char (line forward) \\
-    \verb!sj ,j!  & 1 char (downwards) \\
-    \verb!sk ,k!  & 1 char (upwards) \\
+    \verb!sh ,h!  & 1 char (line back) \\
+    \verb!sl ,l!  & 1 char (line fore) \\
+    \verb!sj ,j!  & 1 char (down) \\
+    \verb!sk ,k!  & 1 char (up) \\
     \verb!ss!     & 2 chars \\
     \verb!s/!     & x chars \\
     \verb!sn!     & goto next match \\
-\end{tabular}
-
-\section{\hrulefill editing\hrulefill}
-\subsection{:: general ::}
-\begin{tabular}{@{}ll@{}}
-    \verb!go!       & insert newline below (no imode) \\
-    \verb!gO!       & insert newline above (no imode) \\
 \end{tabular}
 
 \section{\hrulefill searching\hrulefill}
@@ -152,9 +161,9 @@
     \verb!<S-z>/!       & fuzzy search forward \\
     \verb!<S-z>?!       & fuzzy search backward \\
     \verb!<S-z>g/!      & fuzzy search (stay) \\
-    \verb!z/!           & easymotion search forward \\
-    \verb!z?!           & easymotion search backward \\
-    \verb!zg/!          & easymotion search (stay) \\
+    \verb!z/!           & emotion search (fore) \\
+    \verb!z?!           & emotion search (back) \\
+    \verb!zg/!          & emotion search (stay) \\
     \verb!<Tab>!        & move to next match \\
     \verb!<S-Tab>!      & move to prev match \\
     \verb!<C-j>!        & move to next page match \\
@@ -260,7 +269,7 @@
 
 \subsection{:: fzf - search ::}
 \begin{tabular}{@{}ll@{}}
-    \verb!,fb!      & ag \\
+    \verb!,fa!      & ag \\
     \verb!,fb!      & buffers \\
     \verb!,fü!      & color schemes \\
     \verb!,fc!      & command history \\
@@ -273,6 +282,12 @@
     \verb!,f/!      & search history \\
 \end{tabular}
 
+\section{\hrulefill IDE\hrulefill}
+\subsection{:: neomake ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!<F3>!     & prev err/warn \\
+    \verb!<F4>!     & next err/warn \\
+\end{tabular}
 
 \section{\hrulefill vcs\hrulefill}
 \subsection{:: signify ::}
