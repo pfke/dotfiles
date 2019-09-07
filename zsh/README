@@ -1,0 +1,7 @@
+= Usage of zplugin as plugin manager =
+
+bootstrap:
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"`
+
+This will install Zplugin in ~/.zplugin/bin. .zshrc will be updated with three lines of code that will be added to the bottom. The lines will be sourcing zplugin.zsh and setting up completion for command zplugin. After installing and reloading the shell compile Zplugin with zplugin self-update.
+

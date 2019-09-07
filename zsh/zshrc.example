@@ -1,0 +1,11 @@
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+### Added by Zplugin's installer
+source '/home/heiko/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
+
+source '/home/heiko/.local/pfke/dotfiles/zsh/plugins.zsh'
+source '/home/heiko/.local/pfke/dotfiles/zsh/settings.zsh'
+
