@@ -15,7 +15,23 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
+
 bindkey -e
+
+# bindkey
+bindkey "^[u"   undo                        # undo last dingens
+
+# ctrl+<- | ctrl+->
+bindkey "^[[1;5D"   backward-word           # <C-<>
+bindkey "^[[1;5C"   forward-word            # <C->>
+
+bindkey "^[[3~"     delete-char             # <Del>
+bindkey "^[[3;5~"   delete-word             # <C-Del>
+bindkey "^?"        backward-delete-char    # <Back>
+bindkey "^H"        backward-delete-word    # <C-Back>
+
+bindkey "^[[H"      beginning-of-line       # home
+bindkey "^[[F"      end-of-line             # end
 
 # The following lines were added by compinstall
 zstyle :compinstall filename "${HOME}/.zshrc"
@@ -23,3 +39,7 @@ zstyle :compinstall filename "${HOME}/.zshrc"
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+

@@ -26,8 +26,8 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin installer's chunk
 
-source "${PATH_TO_DOTFILES_REPO}/zsh/plugins.zsh"
 source "${PATH_TO_DOTFILES_REPO}/zsh/settings.zsh"
+source "${PATH_TO_DOTFILES_REPO}/zsh/plugins.zsh"
 if [ -e ${HOME}/.zshrc_custom ]; then
     source "${HOME}/.zshrc_custom"
 fi
