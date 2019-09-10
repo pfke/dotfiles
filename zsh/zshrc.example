@@ -28,7 +28,9 @@ autoload -Uz _zplugin
 
 source "${PATH_TO_DOTFILES_REPO}/zsh/plugins.zsh"
 source "${PATH_TO_DOTFILES_REPO}/zsh/settings.zsh"
-source "${HOME}/.zshrc_custom"
+if [ -e ${HOME}/.zshrc_custom ]; then
+    source "${HOME}/.zshrc_custom"
+fi
 
 export MAKEFLAGS='-j 5'
 
