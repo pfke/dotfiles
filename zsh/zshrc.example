@@ -1,11 +1,62 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# variables
+PATH_TO_DOTFILES_REPO="${HOME}/.local/pfke/dotfiles"
+
+#######################################################################
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory autocd extendedglob nomatch
+unsetopt beep notify
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename "${HOME}/.zshrc"
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
 
 ### Added by Zplugin's installer
-source '/home/heiko/.zplugin/bin/zplugin.zsh'
+# bootstrap zplugin
+if [ ! -d $HOME/.zplugin ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+fi
+source "${HOME}/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
+### End of Zplugin installer's chunk
 
-source '/home/heiko/.local/pfke/dotfiles/zsh/plugins.zsh'
-source '/home/heiko/.local/pfke/dotfiles/zsh/settings.zsh'
+source "${PATH_TO_DOTFILES_REPO}/zsh/plugins.zsh"
+source "${PATH_TO_DOTFILES_REPO}/zsh/settings.zsh"
+source "${HOME}/.zshrc_custom"
+
+export MAKEFLAGS='-j 5'
+
+eval $(systemctl --user show-environment | grep SSH_AUTH_SOCK)
+export SSH_AUTH_SOCK
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+    source /etc/profile.d/vte.sh
+fi
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# If running trom tty1 start sway
+if [ $(tty) = "/dev/tty1" ]; then
+    export XKB_DEFAULT_LAYOUT=de
+    export XKB_DEFAULT_MODEL=pc105
+    export XKB_DEFAULT_VARIANT=nodeadkeys
+    export WLC_REPEAT_DELAY=220
+    export WLC_REPEAT_RATE=25
+
+    export _JAVA_AWT_WM_NONREPARENTING=1
+
+    ssh-add
+
+    startx
+    exit 0
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
