@@ -39,6 +39,7 @@ zstyle :compinstall filename "${HOME}/.zshrc"
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+kitty + complete setup zsh | source /dev/stdin
 
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
