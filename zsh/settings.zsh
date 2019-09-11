@@ -10,9 +10,9 @@ fi
 export EDITOR="nvim"
 export VISUAL=$EDITOR
 
-HISTFILE=~/.histfile
+HISTFILE=~/.zsh_history
 HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=$HISTSIZE
 setopt appendhistory autocd extendedglob nomatch
 unsetopt beep notify
 
