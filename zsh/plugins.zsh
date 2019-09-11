@@ -54,20 +54,18 @@ zplugin light zdharma/fast-syntax-highlighting
 
 zplugin light ytet5uy4/fzf-widgets
   # Map widgets to key
-  bindkey '^f^a' fzf-select-widget
-  bindkey '^f^e' fzf-edit-files
-  bindkey '^f^k' fzf-kill-processes
-  bindkey '^f^s' fzf-exec-ssh
-  bindkey '^\'   fzf-change-recent-directory
-  bindkey '^f^f' fzf-insert-files
-  bindkey '^f^g' fzf-insert-directory
+  bindkey '^[w' fzf-select-widget
+  bindkey '^[e' fzf-edit-files
+  bindkey '^[k' fzf-kill-processes
+  bindkey '^[v' fzf-change-recent-directory
+  bindkey '^[f' fzf-insert-files
+  bindkey '^[d' fzf-insert-directory
+  # Enable Exact-match by fzf-insert-history
+  FZF_WIDGET_OPTS[insert-history]='--exact'
+  # Start fzf in a tmux pane
+  FZF_WIDGET_TMUX=1
 
 zplugin light zsh-users/zsh-history-substring-search
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 
-  # Enable Exact-match by fzf-insert-history
-  FZF_WIDGET_OPTS[insert-history]='--exact'
-
-  # Start fzf in a tmux pane
-  FZF_WIDGET_TMUX=1
