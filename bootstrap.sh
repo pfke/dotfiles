@@ -9,7 +9,9 @@ fi
 cp $(pwd)/i3/i3.config ${HOME}/.config/i3/config
 
 # zsh zeuch
-mv ${HOME}/.zshrc ${HOME}/.zshrc.save
+if [[ -f ${HOME}/.zshrc && ! -f ${HOME}/.zshrc.save ]]; then
+    mv ${HOME}/.zshrc ${HOME}/.zshrc.save
+fi
 ln -s $(pwd)/zsh/zshrc.config ${HOME}/.zshrc
 
 # kitty zeuch
@@ -18,5 +20,13 @@ if [[ ! -d ${HOME}/.config/kitty ]]; then
 elif [[ -e ${HOME}/.config/kitty/kitty.conf ]]; then 
     mv ${HOME}/.config/kitty/kitty.conf ${HOME}/.config/kitty/kitty.conf
 fi
-ln -s $(pwd)/kitty/kitty.config ${HOME}/.config/kitty/kitty.conf
+ln -s $(pwd)/kitty/kitty.config ${HOME}/.config/kitty/kitty.conf.save
+
+# nvim zeuch
+if [[ ! -d ${HOME}/.config/nvim ]]; then
+    mkdir -p ${HOME}/.config/nvim
+elif [[ -e ${HOME}/.config/nvim/init.vim ]]; then 
+    mv ${HOME}/.config/nvim/init.vim ${HOME}/.config/nvim/init.vim
+fi
+ln -s $(pwd)/vim/vim.config ${HOME}/.config/nvim/init.vim
 
