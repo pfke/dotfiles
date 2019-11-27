@@ -1,4 +1,9 @@
-.cheat for zsg
-.ccat + cless: syntax highlighting
-.pstree beschreiben
+.cheat for zsh
+.zsh: cheat: ccat + cless: syntax highlighting
+.general: cheat: pstree beschreiben
 .zsh: plugin für schnelles dir wechseln, like uatojump, aber autojump ist scheisse
+.zsh: subsearch geht manchmal nicht
+.vim: nerdcomment im nvim
+.vim: nvim-conf auch f. vim konfigurieren
+.zsh: tab-completion soll das jeweilige Element markieren (man erkennt es dann besser)
+.zsh: ll und .. Kommandos verfügbar machen
