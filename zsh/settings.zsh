@@ -44,3 +44,5 @@ kitty + complete setup zsh | source /dev/stdin
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
+alias rs="rsync -a --info=progress2 "
+alias ytm="youtube-dl -f 251 "
