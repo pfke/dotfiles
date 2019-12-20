@@ -1,16 +1,68 @@
 \section{\hrulefill editing\hrulefill}
 \subsection{:: general ::}
 \begin{tabular}{@{}ll@{}}
+    \verb!c d y!    & change, delete, yank \\
+    \verb!s!        & replace \\
+    \verb!v!        & visual select \\
+    \verb!x!        & delect char \\
     \verb!go!       & newline below (no imode) \\
     \verb!gO!       & newline above (no imode) \\
+\end{tabular}
+
+\subsection{:: basic: delete ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!dl!       & delete character (alias: "x") \\
+    \verb!diw!      & delete inner word \\
+    \verb!daw!      & delete a word \\
+    \verb!diW!      & delete inner WORD (see WORD) \\
+    \verb!daW!      & delete a WORD (see WORD) \\
+    \verb!dgn!      & delete the next search pattern match \\
+    \verb!dd!       & delete one line \\
+    \verb!dis!      & delete inner sentence \\
+    \verb!das!      & delete a sentence \\
+    \verb!dib!      & delete inner '(' ')' block \\
+    \verb!dab!      & delete a '(' ')' block \\
+    \verb!dip!      & delete inner paragraph \\
+    \verb!dap!      & delete a paragraph \\
+    \verb!diB!      & delete inner '{' '}' block \\
+    \verb!daB!      & delete a '{' '}' block \\
 \end{tabular}
 
 \subsection{:: autopairs ::}
 \begin{tabular}{@{}ll@{}}
     \verb!<C-v>!    & insert pair w/o plugin \\
     \verb!<A-p>!    & disable/enable plugin \\
-    \verb!<A-e>!    & \{|\}'hello' > \{'hello'\} \\
+    \verb!<A-e>!    & \{|\}'hello' \ding{217} \{'hello'\} \\
 \end{tabular}
+
+\subsection{:: surround.vim ::}
+
+\subsubsection{:: targets ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!w W s! &  word, WORD, sentence \\
+\end{tabular}
+
+\subsubsection{:: commands ::}
+\begin{tabular}{@{}ll@{}}
+    \verb!ds !      & delete surroundings \\
+    \verb!  ds"!    & \hspace{2pt} "hell*o" \ding{217} hello \\
+    \verb!  ds)!    & \hspace{2pt} (1+5*6)/2 \ding{217} 1+56/2 \\
+    \verb!  dst!    & \hspace{2pt} <p>*h</p> \ding{217} h \\
+    \verb!cs !      & change surroundings \\
+    \verb!  cs"'  ! & \hspace{2pt} "H *w!" \ding{217} 'H w!' \\
+    \verb!  cs"<q>! & \hspace{2pt} "H *w!" \ding{217} <q>H w!</q> \\
+    \verb!  cs)]  ! & \hspace{2pt} (1+5*6)/2 \ding{217} [1+56]/2 \\
+    \verb!  cs)[  ! & \hspace{2pt} (1+5*6)/2 \ding{217} [ 1+56 ]/2 \\
+    \verb!  cst<p>! & \hspace{2pt} <a>.*</a> \ding{217} <p>.</p> \\
+    \verb!ys !      & you surroundings \\
+    \verb!  ysiw) ! & \hspace{2pt} Hee *wor! \ding{217} 'Hee (wor)! \\
+    \verb!  ysiW) ! & \hspace{2pt} Hee *wor! \ding{217} 'Hee (wor!) \\
+    \verb!ysW(!     & add: if *x>3 ( \ding{217} if ( x>3 ) ( \\
+    \verb!cs])!     & chg: [123+5*6]/2 \ding{217} (123+56)/2 \\
+    \verb!vllllS'!  & visual: my str = *wheel; -\ding{217} my str = 'wheel'; \\
+\end{tabular}
+
+(isumsi wwww)
 
 \subsection{:: multiple cursors ::}
 \begin{tabular}{@{}ll@{}}
