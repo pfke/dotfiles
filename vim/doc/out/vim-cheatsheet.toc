@@ -1,0 +1,55 @@
+\babel@toc {english}{}
+\def \brnk@cur@col {1}
+\contentsline {section}{\numberline {1}\hrulefill general\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {1.1}key modifier} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {1.2}commands} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {1.3}help} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {2}\hrulefill motion\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {2.1}motions and operators} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {2.2}left-right motions} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {2.3}up-down motions} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {2.4}word motion} {1\relax .\brnk@cur@col }
+\def \brnk@cur@col {2}
+\contentsline {subsection}{\numberline {2.5}text object motion} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {2.6}text object selection} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {2.7}marks} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {2.8}jumps} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {3}\hrulefill editing\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {3.1}:: general ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {3.2}:: basic: delete ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {3.3}:: autopairs ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {3.4}:: surround.vim ::} {1\relax .\brnk@cur@col }
+\contentsline {subsubsection}{\numberline {3.4.1}:: targets ::} {1\relax .\brnk@cur@col }
+\def \brnk@cur@col {3}
+\contentsline {subsubsection}{\numberline {3.4.2}:: commands ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {3.5}:: multiple cursors ::} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {4}\hrulefill movement\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {4.1}:: general ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {4.2}:: visual split ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {4.3}:: easymotion (emotion) ::} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {5}\hrulefill split screen\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {5.1}:: general ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {5.2}:: moving cursor ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {5.3}:: moving windows ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {5.4}:: resizing ::} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {6}\hrulefill searching\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {6.1}:: plugins ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {6.2}:: general ::} {1\relax .\brnk@cur@col }
+\def \brnk@cur@col {4}
+\contentsline {subsection}{\numberline {6.3}:: incsearch ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {6.4}:: asterisk ::} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {7}\hrulefill NERDTree\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {7.1}:: NERDTree - general ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {7.2}:: NERDTree - file node ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {7.3}:: NERDTree - dir node ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {7.4}:: NERDTree - bookmarks ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {7.5}:: NERDTree - tree nav ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {7.6}:: NERDTree - filesystem ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {7.7}:: NERDTree - filtering ::} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {8}\hrulefill FZF\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {8.1}:: fzf - git ::} {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {8.2}:: fzf - search ::} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {9}\hrulefill IDE\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {9.1}:: neomake ::} {1\relax .\brnk@cur@col }
+\contentsline {section}{\numberline {10}\hrulefill vcs\hrulefill } {1\relax .\brnk@cur@col }
+\contentsline {subsection}{\numberline {10.1}:: signify ::} {1\relax .\brnk@cur@col }

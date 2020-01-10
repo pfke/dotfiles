@@ -1,128 +1,147 @@
 \section{\hrulefill motion\hrulefill}
 
 \subsection{motions and operators}
-
-\subsection{left/right motions}
-
-\subsection{up/down motions}
-
-\subsection{text object motion}
-
-\subsection{text object selection}
-This is a series of commands that can only be used while in Visual mode or
-after an operator.  The commands that start with "a" select "a"n object
-including white space, the commands starting with "i" select an "inner" object
-without white space, or just the white space.  Thus the "inner" commands
-always select less text than the "a" commands. \\
-
 \begin{tabular}{@{}ll@{}}
-    \verb!aw!       & "a word", select [count] words \\
-    \verb!iw!       & "inner word", select [count] words \\
-    \verb!aW!       & "a WORD", select [count] WORDS \\
-    \verb!iW!       & "inner WORD", select [count] WORDS \\
-    \verb!as!       & "a sentence", select [count] sentences \\
-    \verb!is!       & "inner sentence", select [count] sentences \\
-    \verb!ap!       & "a paragraph", select [count] paragraphs \\
-    \verb!ip!       & "inner paragraph", select [count] paragraphs \\
-    \verb!a] a[!    & "a [] block", select [count] '[' ']' blocks. \\
-    \verb!i] i[!    & "inner [] block", select [count] '[' ']' blocks. \\
-    \verb!a) a( ab! & "a block", select [count] blocks, from "[count] [(" to the matching ')', including the '(' and ')' \\
-    \verb!i) i( ib! & "inner block", select [count] blocks, from "[count] [( to the matching ')', excluding the '(' and ')' \\
-    \verb!a> a<!    & "a <> block", select [count] <> blocks, from the [count]'th unmatched '<' backwards to the matching '>', including the '<' and '>'. \\
-    \verb!i> i<!    & "inner <> block", select [count] <> blocks, from the [count]'th unmatched '<' backwards to the matching '>', excluding the '<' and '>'. \\
-    \verb!at!       & "a tag block", select [count] tag blocks \\
-%%			[count]'th unmatched "<aaa>" backwards to the matching
-%%			"</aaa>", including the "<aaa>" and "</aaa>".
-%%			See |tag-blocks| about the details.
-%%			When used in Visual mode it is made characterwise.
-%%
-%%						*v_it* *it*
-%    \verb!%it			"inner tag block", select [count] tag blocks, from the
-%%			[count]'th unmatched "<aaa>" backwards to the matching
-%%			"</aaa>", excluding the "<aaa>" and "</aaa>".
-%%			See |tag-blocks| about the details.
-%%			When used in Visual mode it is made characterwise.
-%%
-%    \verb!%a}							*v_a}* *a}* *a{*
-%    \verb!%a{							*v_aB* *v_a{* *aB*
-%    \verb!%aB			"a Block", select [count] Blocks, from "[count] [{" to
-%%			the matching '}', including the '{' and '}' (see
-%%			|[{|).
-%%			When used in Visual mode it is made characterwise.
-%%
-%    \verb!%i}							*v_i}* *i}* *i{*
-%    \verb!%i{							*v_iB* *v_i{* *iB*
-%    \verb!%iB			"inner Block", select [count] Blocks, from "[count] [{"
-%%			to the matching '}', excluding the '{' and '}' (see
-%%			|[{|).
-%%			When used in Visual mode it is made characterwise.
-%%
-%    \verb!%a"							*v_aquote* *aquote*
-%    \verb!%a'							*v_a'* *a'*
-%    \verb!%a`							*v_a`* *a`*
-%%			"a quoted string".  Selects the text from the previous
-%%			quote until the next quote.  The 'quoteescape' option
-%%			is used to skip escaped quotes.
-%%			Only works within one line.
-%%			When the cursor starts on a quote, Vim will figure out
-%%			which quote pairs form a string by searching from the
-%%			start of the line.
-%%			Any trailing white space is included, unless there is
-%%			none, then leading white space is included.
-%%			When used in Visual mode it is made characterwise.
-%%			Repeating this object in Visual mode another string is
-%%			included.  A count is currently not used.
-%%
-%    \verb!%i"							*v_iquote* *iquote*
-%    \verb!%i'							*v_i'* *i'*
-%    \verb!%i`							*v_i`* *i`*
-%%			Like a", a' and a`, but exclude the quotes and
-%%			repeating won't extend the Visual selection.
-%%			Special case: With a count of 2 the quotes are
-%%			included, but no extra white space as with a"/a'/a`.
-%%
-%%When used after an operator:
-%%For non-block objects:
-%%	For the "a" commands: The operator applies to the object and the white
-%%	space after the object.  If there is no white space after the object
-%%	or when the cursor was in the white space before the object, the white
-%%	space before the object is included.
-%%	For the "inner" commands: If the cursor was on the object, the
-%%	operator applies to the object.  If the cursor was on white space, the
-%%	operator applies to the white space.
-%%For a block object:
-%%	The operator applies to the block where the cursor is in, or the block
-%%	on which the cursor is on one of the braces.  For the "inner" commands
-%%	the surrounding braces are excluded.  For the "a" commands, the braces
-%%	are included.
-%%
-%%When used in Visual mode:
-%%When start and end of the Visual area are the same (just after typing "v"):
-%%	One object is selected, the same as for using an operator.
-%%When start and end of the Visual area are not the same:
-%%	For non-block objects the area is extended by one object or the white
-%%	space up to the next object, or both for the "a" objects.  The
-%%	direction in which this happens depends on which side of the Visual
-%%	area the cursor is.  For the block objects the block is extended one
-%%	level outwards.
-
-
-
-    \verb!dl!       & delete character (alias: "x") \\
-    \verb!diw!      & delete inner word \\
-    \verb!daw!      & delete a word \\
-    \verb!diW!      & delete inner WORD (see WORD) \\
-    \verb!daW!      & delete a WORD (see WORD) \\
-    \verb!dgn!      & delete the next search pattern match \\
-    \verb!dd!       & delete one line \\
-    \verb!dis!      & delete inner sentence \\
-    \verb!das!      & delete a sentence \\
-    \verb!dib!      & delete inner '(' ')' block \\
-    \verb!dab!      & delete a '(' ')' block \\
-    \verb!dip!      & delete inner paragraph \\
-    \verb!dap!      & delete a paragraph \\
-    \verb!diB!      & delete inner '{' '}' block \\
-    \verb!daB!      & delete a '{' '}' block \\
+    \verb!c!                & change \\
+    \verb!d!                & delete \\
+    \verb!y!                & yank into register \\
+    \verb!~!                & swap case \\
+    \verb!g~~!              & swap case (entire ll.) \\
+    \verb!gu gU!            & make lower-/uppercase \\
+    \verb!> <!              & shift right/left \\
 \end{tabular}
 
-Also see `gn` and `gN`, operating on the last search pattern.
+\subsection{left-right motions}
+\begin{tabular}{@{}ll@{}}
+    \verb!h l!              & [cnt] left, right \\
+    \verb!0 $!              & begin/end of ll. \\
+    \verb!^!                & 1st non-blank of ll. \\
+    \verb!g_!               & last non-blank of ll. \\
+
+    \verb!g0 gm g$!         & beg,mid,end of scrn ll. \\
+
+    \verb!|!                & to scrn. col [cnt] \\
+
+    \verb!F(_) f(_)!        & to [cnt]'th (char) (\rotatebox[origin=c]{180}{\ding{217}}/\ding{217}) \\
+    \verb!T(_) t(_)!        & till [cnt]'th (char) (\rotatebox[origin=c]{180}{\ding{217}}/\ding{217}) \\
+    \verb!; ,!              & [cnt] rpt last F,f,T,t (\rotatebox[origin=c]{180}{\ding{217}}/\ding{217}) \\
+\end{tabular}
+
+
+\subsection{up-down motions}
+\begin{tabular}{@{}ll@{}}
+    \verb!j k!              & [cnt] down, up \\
+    \verb!gj gk!            & [cnt] disp ll. down, up \\
+    \verb!- +!              & [cnt] ll. up/down 1st chr \\
+    \verb!<C-j> <C-k>!      & 20 ll. down/up \\
+
+    \verb!<C-h> <C-l>!      & prev/next empty ll. \\
+
+    \verb!gg G!             & goto ll. [cnt] def. 1st/last \\
+    \verb!%!                & goto [count] perc of file \\
+\end{tabular}
+
+
+\subsection{word motion}
+\begin{tabular}{@{}ll@{}}
+    \verb!w W!      & word/WORD (\ding{217}) \\
+    \verb!e E!      & end of word/WORD (\ding{217}) \\
+    \verb!b B!      & word/WORD (\rotatebox[origin=c]{180}{\ding{217}}) \\
+    \verb!ge gE!    & end of word/WORD (\rotatebox[origin=c]{180}{\ding{217}}) \\
+\end{tabular}
+
+\hrulefill \noindent\rule{4cm}{0.4pt} \\
+A \textbf{word} consists of a sequence of letters, digits and underscores, or a sequence of other non-blank characters, separated with white space (spaces, tabs, <EOL>). \\
+A \textbf{WORD} consists of a sequence of non-blank characters, separated with white space. An empty line is also considered to be a WORD. \\
+
+
+\subsection{text object motion}
+\begin{tabular}{@{}ll@{}}
+    \verb!( )!      & [count] sentences (\rotatebox[origin=c]{180}{\ding{217}}/\ding{217}) \\
+    \verb!{ }!      & [count] paragraphs (\rotatebox[origin=c]{180}{\ding{217}}/\ding{217}) \\
+    \verb!]] ][!    & [count] to the next '\{'/'\}' \\
+    \verb![[ []!    & [count] to the prev '\{'/'\}' \\
+\end{tabular}
+
+\hrulefill \noindent\rule{4cm}{0.4pt} \\
+A \textbf{sentence} is defined as ending at a '.', '!' or '?' followed by either the end of a line, or by a space or tab. \\
+A \textbf{paragraph} begins after each empty line. \\
+A \textbf{section} begins after a form-feed (<C-L>) in the first column. \\
+
+
+\subsection{text object selection}
+This cmds can only be used while in Visual mode or after an operator.  The "a" cmds select an object including white space, the "i" cmds select an "inner" object without white space. \\
+\begin{tabular}{@{}ll@{}}
+    \verb!aw aW!    & a word/WORD \\
+    \verb!iw iW!    & inner word/WORD \\
+    \verb!as is!    & a/inner sentence \\
+    \verb!ap ip!    & a/inner paragraph \\
+    \verb!a] i]!    & a/inner [] block \\
+    \verb!a) ab!    & a () block \\
+    \verb!i) ib!    & inner () block \\
+    \verb!a> i>!    & a/inner <> block \\
+    \verb!at it!    & a/inner <a>...</a> block \\
+    \verb!a} aB!    & a {} block \\
+    \verb!i} iB!    & inner {} block \\
+    \verb!a" a' a`! & a quoted string \\
+    \verb!i" i' i`! & inner quoted string \\
+\end{tabular}
+
+\hrulefill \noindent\rule{4cm}{0.4pt} \\
+Examples: \\
+\begin{tabular}{@{}ll@{}}
+    \verb!dl!       & del char \\
+    \verb!daw diw!  & del a/inner word \\
+    \verb!dgn dgN!  & del the next/prev match \\
+    \verb!dd!       & del [cnt] line \\
+    \verb!das!      & del a sentence \\
+    \verb!dib!      & del inner () block \\
+\end{tabular}
+
+
+\subsection{marks}
+Jumping: \\
+\begin{tabular}{@{}ll@{}}
+    \verb!` (backtick)!         & specified location \\
+    \verb!' (single quote)!     & ll. (1st non-blank) \\
+\end{tabular}
+
+\hrulefill \noindent\rule{4cm}{0.4pt} \\
+Marks: \\
+\begin{tabular}{@{}ll@{}}
+    \verb!'{a-z}!       & valid within one file \\
+    \verb!'{A-Z}!       & valid between files \\
+    \verb!'[ `[!        & prev chged/yanked (1st char) \\
+    \verb!'] `]!        & prev chged/yanked (last char) \\
+    \verb!'< `>!        & 1st/last ll. visual sel \\
+    \verb!'' ``!        & before latest jmp \\
+    \verb!'^ `^!        & where Insert mode exited \\
+    \verb!'. `.!        & where last chg were made \\
+
+    \verb!]' ]`!        & next ll. w/ lowercase mark \\
+    \verb![' [`!        & prev ll. w/ lowercase mark \\
+\end{tabular}
+
+\hrulefill \noindent\rule{4cm}{0.4pt} \\
+\begin{tabular}{@{}ll@{}}
+    \verb!m{a-zA-Z}!            & set mark {a-zA-Z} at cursor \\
+    \verb!m' m`!                & set ctxt mark; jmp \verb!'' ``! \\
+    \verb!m[ m]!                & set \verb!'[ ']! mark \\
+    \verb!m< m>!                & set \verb!'< '>! mark; chg gv \\
+
+    \verb!'{a-z}!               & jump (current buf) \\
+    \verb!'{A-Z}!               & jump (chg file) \\
+
+    \verb!:marks!               & list marks \\
+    \verb!:delm {_}!            & del marks \\
+    \verb!:delm!!               & del current buf marks \\
+\end{tabular}
+
+
+\subsection{jumps}
+\begin{tabular}{@{}ll@{}}
+    \verb!<C-o> <C-i>!      & jump back/forward \\
+    \verb!:ju[mps]!         & print jump list \\
+    \verb!:cle[arjumps]!    & clear jump list \\
+\end{tabular}
+
