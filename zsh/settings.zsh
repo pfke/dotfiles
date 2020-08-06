@@ -3,7 +3,7 @@ if [[ ! -d ${HOME}/.config/liquidprompt ]]; then
     git -C ${HOME}/.config clone https://github.com/nojhan/liquidprompt.git
 fi
 if [[ ! -e ${HOME}/.config/liquidpromptrc ]]; then
-    ln -s ${PATH_TO_DOTFILES_REPO}/zsh/liquidpromptrc ${HOME}/.config/liquidpromptrc
+    ln -s ${ZDOTDIR}/liquidpromptrc ${HOME}/.config/liquidpromptrc
 fi
 [[ $- = *i* ]] && source ${HOME}/.config/liquidprompt/liquidprompt
 
