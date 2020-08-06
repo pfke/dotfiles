@@ -20,12 +20,12 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of zinit installer's chunk
 
-source "${ZSH}/zsh/aliases.zsh"
-source "${ZSH}/zsh/bindkeys.zsh"
-source "${ZSH}/zsh/history.zsh"
+source "${ZDOTDIR}/aliases.zsh"
+source "${ZDOTDIR}/bindkeys.zsh"
+source "${ZDOTDIR}/history.zsh"
 
-source "${ZSH}/zsh/settings.zsh"
-source "${ZSH}/zsh/plugins.zsh"
+source "${ZDOTDIR}/settings.zsh"
+source "${ZDOTDIR}/plugins.zsh"
 if [ -e ${HOME}/.zshrc_custom ]; then
     source "${HOME}/.zshrc_custom"
 fi

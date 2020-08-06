@@ -12,7 +12,6 @@ setopt promptsubst
 zinit ice wait lucid
 zinit snippet PZT::modules/helper/init.zsh
 
-# OMZ themes use this library.
 zinit ice wait lucid
 zinit snippet OMZ::lib/clipboard.zsh
 zinit snippet OMZ::lib/functions.zsh
@@ -44,9 +43,9 @@ zinit snippet OMZ::plugins/web-search/web-search.plugin.zsh
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 zinit snippet OMZ::plugins/git-extras/git-extras.plugin.zsh
 
-# Load Docker completion.
-zinit ice wait as"completion" lucid
-zinit snippet OMZ::plugins/docker/_docker
+# Abkürzungen f. zsh
+zinit light olets/zsh-abbr
+abbr import-aliases --quiet
 
 # Normal plugin (syntax-highlighting, at the end, like it is suggested by the plugin's README).
 zinit ice wait atinit"zpcompinit" lucid
