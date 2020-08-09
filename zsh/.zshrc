@@ -34,10 +34,16 @@ fi
 if [ $(tty) = "/dev/tty1" ]; then
     ssh-add
 
-    #startx
-    #exit 0
+    startx
+    exit 0
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+### End of Zinit's installer chunk
+### End of Zinit's installer chunk
+### End of Zinit's installer chunk
+### End of Zinit's installer chunk
+### End of Zinit's installer chunk
+### End of Zinit's installer chunk
 ### End of Zinit's installer chunk

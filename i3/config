@@ -228,5 +228,8 @@ bar {
 exec_always --no-startup-id setxkbmap -layout de
 
 exec kitty
-exec firefox -prevate
+exec firefox -private
+
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+exec --no-startup-id redshift-gtk
 
